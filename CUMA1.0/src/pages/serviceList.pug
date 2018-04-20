@@ -1,9 +1,0 @@
-extends bases/layout.pug
-block prepend vars
-    - var title = 'Liste des services'
-block content
-    main#Services
-        h1 nos services
-        ul.services
-            each val, index in {0:['mycumacompta'],1:['mycumadata'],2:['mycumapaie'],3:['mycumaplanning'],4:['mycumatravaux'],5:['mycumacrm'],6:['mycumaformation'],7:['mycumareseaux'],8:['mycumatemps'],9:['negaset']}
-                li(class=val[0]): a(href=val[0]+'.html'): img(src=imgC+'Services/'+val[0]+'.png',alt='logo')
