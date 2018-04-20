@@ -1,0 +1,14 @@
+doctype html
+html(lang='fr')
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width,initial-scale=1.0")
+        link(rel="stylesheet", href="css/styles.css")
+        block vars
+            title CUMA - #{title}
+    body
+        - var imgC = 'assets/img/img-content/'
+        - var imgL = 'assets/img/img-layout/'
+        include header.pug
+        block content
+        include footer.pug

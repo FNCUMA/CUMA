@@ -1,0 +1,259 @@
+main#homepage {
+    // width: 95vw;
+    width: 100vw;
+    min-width: 122rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // align-items: center;
+    // margin: 0 auto;
+    section {
+        // max-width: 95vw;
+        min-width: 100vw;
+        margin-top: 5rem;
+        &#Presentation {
+            // display: none;
+            margin-top: 0;
+            min-width: 100vw;
+            // max-height: 100vh;
+            min-height: 80vh;
+            height: 80vh;
+            background: url('../assets/img/img-layout/PaysageAgricole.jpg');
+            background-size: cover;
+            // border: solid 11px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            h1 {
+                color: #fff;
+                font-weight: 800;
+                font-size: 9rem;
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
+            }
+            p {
+                margin-top: 3rem;
+                color: #fff;
+                max-width: 66vw;
+                line-height: 1.5;
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
+                font-size: 2rem;
+            }
+        }
+        &#Services {
+            // background-color: red;
+            h2 {
+                text-transform: uppercase;
+                border-bottom: 0.3rem solid #7c7e81;
+                max-width: 95vw;
+                margin: 0 auto;
+                padding-bottom: 1rem;
+            }
+             > p {
+                text-align: center;
+                padding: 2rem;
+                font-size: 1.5rem;
+                // border: solid;
+            }
+            ul.services {
+                width: 100%;
+                min-height: 100vh;
+                display: grid;
+                grid-template-columns: repeat(3,33.33%);
+                grid-template-rows: repeat(4,25%);
+                align-items: center;
+                li {
+                    width: 10rem;
+                    height: 10rem;
+                    border: solid #000;
+                    background: center no-repeat;
+                    background-size: 100% 100%;
+                    &.compta {
+                        background-image: url("../assets/img/img-layout/logo_entraid.svg");
+                        grid-column: 1;
+                        grid-row: 1;
+                        justify-self: end;
+                    }
+                    &.paie {
+                        background-image: url("../assets/img/img-layout/logo_entraid.svg");
+                        grid-column: 2;
+                        grid-row: 1;
+                        justify-self: center;
+                    }
+                    &.planning {
+                        background-image: url("../assets/img/img-layout/logo_entraid.svg");
+                        grid-column: 3;
+                        grid-row: 1;
+                        justify-self: start;
+                    }
+                    &.crm {
+                        background-image: url("../assets/img/img-layout/logo_entraid.svg");
+                        grid-column: 1;
+                        grid-row: 2;
+                        justify-self: end;
+                    }
+                    &.data {
+                        background-image: url("../assets/img/img-layout/logo_entraid.svg");
+                        grid-column: 2;
+                        grid-row: 2;
+                        justify-self: center;
+                    }
+                    &.travaux {
+                        background-image: url("../assets/img/img-layout/logo_entraid.svg");
+                        grid-column: 3;
+                        grid-row: 2;
+                        justify-self: start;
+                    }
+                    &.reseaux {
+                        background-image: url("../assets/img/img-layout/logo_entraid.svg");
+                        grid-column: 1;
+                        grid-row: 3;
+                        justify-self: end;
+                    }
+                    &.temps {
+                        background-image: url("../assets/img/img-layout/logo_entraid.svg");
+                        grid-column: 2;
+                        grid-row: 3;
+                        justify-self: center;
+                    }
+                    &.mecagest {
+                        background-image: url("../assets/img/img-layout/logo_entraid.svg");
+                        grid-column: 3;
+                        grid-row: 3;
+                        justify-self: start;
+                    }
+                    &.formation {
+                        background-image: url("../assets/img/img-layout/logo_entraid.svg");
+                        grid-column: 2;
+                        grid-row: 4;
+                        justify-self: center;
+                    }
+                }
+            }
+        }
+        &#Equipes {
+            // background-color: green;
+            h2 {
+                text-transform: uppercase;
+                border-bottom: 0.3rem solid #7c7e81;
+                max-width: 95vw;
+                margin: 0 auto;
+                padding-bottom: 1rem;
+            }
+             > p {
+                text-align: center;
+                padding: 2rem;
+                font-size: 1.5rem;
+                // border: solid;
+            }
+            ul.equipes {
+                display: flex;
+                justify-content: space-evenly;
+                min-width: 90%;
+                // border: solid;
+                margin: 2rem auto;
+                li {
+                    // border: solid;
+                    height: 15rem;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    a {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: space-between;
+                        div {
+                            height: 10rem;
+                            width: 10rem;
+                            background: center no-repeat;
+                            background-size: 100% 100%;
+                            background-image: url("../assets/img/img-content/Equipe/employe.png");
+                        }
+                        p {
+                            // border: solid;
+                            &:nth-child(2) {
+                                margin-top: 0.5rem;
+                                // border: solid;
+                                // word-break: break-word;
+                            }
+                            &:last-child {
+                                // border: solid;
+                                margin-top: 1rem;
+                                // width: 2rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &#Partenaires {
+            // background-color: green;
+            // padding: 0 2rem;
+            // max-width: 95vw;
+            // margin: 0 auto;
+            // width: 95vw;
+            h2 {
+                text-transform: uppercase;
+                border-bottom: 0.3rem solid #7c7e81;
+                max-width: 95vw;
+                margin: 0 auto;
+                padding-bottom: 1rem;
+            }
+            > p {
+                text-align: center;
+                padding: 2rem;
+                font-size: 1.5rem;
+                // border: solid;
+            }
+            ul {
+                display: flex;
+                align-items: center;
+                // justify-content: space-between;
+                justify-content: space-evenly;
+                max-width: 95vw;
+                margin: 2rem auto;
+                li {
+                    width: 10rem;
+                    height: 10rem;
+                    a {
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 100%;
+                        &:hover {
+                            background-color: #96D600;
+                        }
+                        i {
+                            font-size: 8rem;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            height: 100%;
+                            width: 100%;
+                            background: center no-repeat;
+                            background-size: 100% 100%;
+                            // border: solid 2rem;
+                            &.JCB {
+                                background-image: url("../assets/img/img-content/partenaires/JCB.svg");
+                            }
+                            &.LEMKEN {
+                                background-image: url("../assets/img/img-content/partenaires/LEMKEN.svg");
+                            }
+                            &.RF {
+                                background-image: url("../assets/img/img-content/partenaires/RF.svg");
+                            }
+                            &.rousseau {
+                                background-image: url("../assets/img/img-content/partenaires/rousseau.svg");
+                            }
+                            &.trioplast {
+                                background-image: url("../assets/img/img-content/partenaires/trioplast.svg");
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
