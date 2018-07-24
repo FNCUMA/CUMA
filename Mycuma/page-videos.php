@@ -4,12 +4,12 @@ Template Name: Vidéo
 */
 get_header(); ?>
 <main class="container">
-    <h1 class="font-weight-light mt-5 my-lg-3 text-lg-left text-center pl-lg-5"><?php the_title(); ?></h1>
+    <h1 class="font-weight-light mt-5 my-lg-3 text-md-left text-center pl-lg-5"><?php the_title(); ?></h1>
 
     <?php get_template_part('slider', 'videos'); ?>
 
     <section class="row justify-content-lg-center mt-lg-5">
-        <ul class="list-group col-lg-12 d-flex flex-wrap flex-row pr-0">
+        <ul class="list-unstyled col-md-12 d-flex justify-content-md-between flex-md-wrap flex-column flex-md-row mt-md-0 px-0 h-100">
 
 <?php
 
@@ -25,15 +25,16 @@ get_header(); ?>
     if ($video_query->have_posts()):
     while( $video_query->have_posts()): $video_query->the_post(); ?>
 
-                <li class="list-group-item border-0 col-12 col-lg-4 mb-5">
+                <li class="border-0 col-12 col-md-6 col-lg-4 mb-5">
                     <a class="d-block text-dark align-items-lg-center justify-content-lg-center" href="<?=get_permalink($post); ?>">
                         <div class="card border-0 h-100 w-100">
 
                         <?php
                             if ($thumbnail_html = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium')) :
+                                $image_alt = get_post_meta( get_post_thumbnail_id($post->ID), '_wp_attachment_image_alt', true );
                                 $thumbnail_src = $thumbnail_html['0']; ?>
 
-                            <img class="img-fluid d-block w-100 card-img-top animated" src="<?=$thumbnail_src; ?>" alt="..." />
+                            <img class="img-fluid d-block w-100 card-img-top animated" src="<?=$thumbnail_src; ?>" alt="<?=$image_alt;?>" />
 
                         <?php else: ?>
 
@@ -79,7 +80,7 @@ get_header(); ?>
             'total' => $total_pages,
             'prev_next' => False ) ); ?>
 
-        <nav class="pagination mt-5 mt-md-0 mb-md-2 mx-auto"><?=$links; ?></nav>
+        <nav class="pagination mt-md-0 mb-md-2 mx-auto"><?=$links; ?></nav>
 
     <?php endif; ?>
 

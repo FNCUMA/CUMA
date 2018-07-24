@@ -153,15 +153,36 @@ $( function() {
         // picture's article
         $('body > main > section.row > ul > li > a > div.card > img.img-fluid').addClass('card-img-top');
 
+        // picture's article tablet
+        $('body > main > section.row > ul > li > a > div.card > img.img-fluid').removeClass('card-img-md-top');
+
         // carousel slider's article recent
         $('#slider-01').addClass('resize_slider');
 
         $('#slider-01').removeClass('resize_slider_xs');
     }
+    else if ($(window).innerWidth() > 412 )
+    {
+        // picture's article
+        $('body > main > section.row > ul > li > a > div.card > img.img-fluid').removeClass('card-img-top');
+
+         // carousel slider's article recent
+         $('#slider-01').removeClass('resize_slider');
+         
+         $('#slider-01').removeClass('resize_slider_xs');
+
+         $('#slider-01').addClass('resize_md_slider');
+
+        // picture's article for device tablet
+        $('body > main > section.row > ul > li > a > div.card > img.img-fluid').addClass('card-img-md-top');
+    }
     else
     {
         // picture's article
         $('body > main > section.row > ul > li > a > div.card > img.img-fluid').removeClass('card-img-top');
+
+        // picture 's article for device tablet
+        $('body > main > section.row > ul > li > a > div.card > img.img-fluid').removeClass('card-img-md-top');
 
         // carousel slider's article recent
         $('#slider-01').removeClass('resize_slider');
@@ -178,22 +199,44 @@ $( window ).resize(function() {
         // picture's article
         $('body > main > section.row > ul > li > a > div.card > img.img-fluid').addClass('card-img-top');
 
+        // picture's article tablet
+        $('body > main > section.row > ul > li > a > div.card > img.img-fluid').removeClass('card-img-md-top');
+
+
         // carousel slider's article recent
         $('#slider-01').addClass('resize_slider');
 
         // carousel slider's article recent
         $('#slider-01').removeClass('resize_slider_xs');
     }
+    else if ($(window).innerWidth() > 412 )
+    {
+        // picture's article
+        $('body > main > section.row > ul > li > a > div.card > img.img-fluid').removeClass('card-img-top');
+
+         // carousel slider's article recent
+         $('#slider-01').removeClass('resize_slider');
+         
+         $('#slider-01').removeClass('resize_slider_xs');
+
+         $('#slider-01').addClass('resize_md_slider');
+
+
+        // picture's article for device tablet
+        $('body > main > section.row > ul > li > a > div.card > img.img-fluid').addClass('card-img-md-top');
+    }
     else
     {
         // picture's article
         $('body > main > section.row > ul > li > a > div.card > img.img-fluid').removeClass('card-img-top');
 
+        // picture 's article for device tablet
+        $('body > main > section.row > ul > li > a > div.card > img.img-fluid').removeClass('card-img-md-top');
+
         $('#slider-01').removeClass('resize_slider');
 
         // carousel slider's article recent
         $('#slider-01').addClass('resize_slider_xs');
-
 
     }
 });

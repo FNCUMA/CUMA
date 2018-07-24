@@ -5,7 +5,7 @@ Template Name: Partenaire
 get_header(); ?>
    <main id="partenaires" class="container flex-column justify-content-around">
         <h1 class="my-5 pl-lg-5 pl-0 font-weight-bold">Partenaires</h1>
-        <section class="row mb-5">
+        <section class="row w-100 mb-5">
 <?php
     $partner_query = new WP_Query( array(
         'post_type' => 'mycuma_partner'
@@ -15,7 +15,7 @@ get_header(); ?>
         while( $partner_query->have_posts()):
             $partner_query->the_post(); ?>
 
-            <article class="text-dark p-5 border border-w rounded mb-5">
+            <article class="w-100 text-dark p-3 p-md-5 border border-w rounded mb-5">
 
             <?php the_title('<h2 class="font-weight-light">','</h2>');?>
             <p class="mx-auto"><?php the_field('description_de_notre_partenaire'); ?></p>

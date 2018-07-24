@@ -1,8 +1,8 @@
 <?php get_header(); ?>
-
 <main id="service_type" class="container d-flex flex-column align-items-center justify-content-center px-lg-0">
     <header class="row w-100 mt-3 mb-5 my-lg-5 flex-column flex-lg-row flex-wrap align-items-lg-start">
-    <img class="col-12 col-lg-5 mb-3 img-fluid" src="<?php the_field('image_du_service'); ?>" alt="...">
+    <?php $image = get_field('image_du_service'); ?>
+    <img class="col-12 col-lg-5 mb-3 img-fluid" src="<?= $image['url']; ?>" alt="<?=$image['alt'];?>">
     <div class="col-12 col-lg-7 d-flex flex-column align-content-lg-between px-0">
       <h2 class="p-lg-2 mb-3 ml-lg-5"><?php the_field('titre'); ?></h2>
       <p class="mb-auto p-lg-2 ml-lg-5 text-justify"><?php the_field('description_du_service'); ?></p>
@@ -14,11 +14,13 @@
                 <h3 class="font-weight-light mb-3 mb-lg-5"><?php the_field('titre_2'); ?></h3>
                 <p><?php the_field('description_du_service_2'); ?></p>
             </div>
-            <img class="img-fluid col-12 col-lg-6 align-self-start px-0 shadow" src="<?php the_field('image_du_service_2'); ?>" alt="...">
+            <?php $image2 = get_field('image_du_service_2'); ?>
+            <img class="img-fluid col-12 col-lg-6 align-self-start px-0 shadow" src="<?= $image2['url'] ?>" alt="<?= $image2['alt'];?>">
         </article>
         <hr class="my-0 w-100 border-w">
         <article class="col-12 d-flex justify-content-center justify-content-lg-between flex-wrap align-items-center my-5 py-lg-0 px-0">
-            <img class="img-fluid col-lg-4 col-12 mb-5 shadow" src="<?php the_field('image_du_service_3'); ?>" alt="...">
+        <?php $image3 = get_field('image_du_service_3'); ?>
+            <img class="img-fluid col-lg-4 col-12 mb-5 shadow" src="<?=$image3['url']; ?>" alt="<?=$image3['alt'];?>">
             <div class="px-0 col-lg-8 pl-lg-5">
                 <h3 class="font-weight-light mb-lg-3"><?php the_field('titre_3'); ?></h3>
                 <p><?php the_field('description_du_service_3'); ?></p>
@@ -52,9 +54,9 @@
     {
       $type_cuma = 'cuma data';
     }
-    elseif ( $post->post_title == 'cuma reseaux')
+    elseif ( $post->post_title == 'cuma réseau')
     {
-      $type_cuma = 'cuma reseaux';
+      $type_cuma = 'cuma réseau';
     }
     elseif ( $post->post_title == 'cuma temps')
     {
@@ -83,11 +85,14 @@
 
     $participant_query_args = array(
         'post_type' => 'mycuma_participant',
-        'post_title' => $type_cuma,
+        'type_participant' => $type_cuma,
         'posts_per_page' => 2
     );
 
     $participant_query = new WP_Query( $participant_query_args ); ?>
+
+    <?php 
+    // var_dump($participant_query);die(); ?>
 
         <article class="my-md-5 col-12 d-flex flex-column flex-lg-row flex-nowrap flex-lg-wrap px-0 mt-5">
             <h3 class="font-weight-light mb-lg-5 col-12">Ils en parlent</h3>

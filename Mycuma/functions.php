@@ -2,7 +2,7 @@
 /**
 * Chargement des scripts
 */
-define('MKCUM_VERSION', '1.0.6');
+define('MKCUM_VERSION', '1.0.7');
 // Chargement dans le front-end
 function mkcum_scripts ()
 {
@@ -313,6 +313,38 @@ if (!current_user_can('manage_options'))
     add_action( 'admin_menu', 'remove_menu_pages' );
 }
 
+//==========================================================
+//  désactiver les étiquettes de tous les posts
+//===========================================================
+
+function myprefix_unregister_tags() {
+
+    unregister_taxonomy_for_object_type('post_tag', 'post');
+
+}
+if (!current_user_can('manage_options'))
+{
+    add_action( 'init', 'myprefix_unregister_tags' );
+}
+
+//==========================================================
+//  désactiver les commentaires de tous les posts et des colonnes
+//===========================================================
+
+function disable_comments() {
+    $post_types = get_post_types();
+    foreach ($post_types as $post_type) {
+        if(post_type_supports($post_type,'comments')) {
+            remove_post_type_support($post_type,'comments');
+            remove_post_type_support($post_type,'trackbacks');
+        }
+    }
+}
+if (!current_user_can('manage_options'))
+{
+    add_action('admin_init','disable_comments');
+}
+
 //==================================================
 //      Masquer les messages de mise à jour
 //=================================================
@@ -402,10 +434,6 @@ if (!current_user_can('manage_options'))
     add_action( 'wp_dashboard_setup', 'wpc_remove_dashboard_widgets' );
 }
 
-
-
-
-
 //===============================================
 // Supprimer des éléments de l'admin bar
 //===============================================
@@ -431,9 +459,7 @@ function wpc_remove_wp_logo( $wp_admin_bar ) {
 
 
 //===============================================
-//
 // Supprimer les notifications d'updates Wordpress
-//
 //===============================================
 
 if ( !is_admin() )
@@ -494,4 +520,3 @@ function wpse107783_redirect_media_edit()
 
     exit( wp_redirect( admin_url() ) );
 }
-

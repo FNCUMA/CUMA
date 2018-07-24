@@ -18,10 +18,11 @@ get_header(); ?>
 
             <li class="col-6 d-flex flex-column border-0 flex-lg-row flex-lg-wrap flex-nowrap align-items-center justify-content-start p-3 mb-3 mb-md-0">
 
-             <?php if( $thumbnail_html = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' )) :
+             <?php if( $thumbnail_html = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' )):
+                        $image_alt = get_post_meta( get_post_thumbnail_id($post->ID), '_wp_attachment_image_alt', true );
                         $thumbnail_src = $thumbnail_html[0]; ?>
 
-                <img class="img-fluid rounded-circle w-100 col-md-6 col-lg-5" src="<?=$thumbnail_src; ?>" alt="..." />
+                <img class="img-fluid rounded-circle w-100 col-md-6 col-lg-5" src="<?=$thumbnail_src; ?>" alt="<?=$image_alt;?>" />
 
             <?php else: ?>
 

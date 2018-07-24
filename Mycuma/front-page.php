@@ -16,7 +16,8 @@
 
           <div class="card bg-cuma col-lg-12 pt-3 border-0 rounded-0 ">
               <div>
-                  <img class="img-fluid d-block w-100" src="<?= the_field('votre_image'); ?>" alt="..." />
+              <?php $image = get_field('votre_image'); ?>
+                  <img class="img-fluid d-block w-100" src="<?= $image['url']; ?>" alt="<?= $image['alt'];?>" />
               </div>
               <div class="card-body text-center h-100">
                   <?php the_title('<h1 class="card-title text-white font-weight-light ">','</h1>'); ?>
@@ -46,13 +47,14 @@
             if ($homepage_query_services->have_posts()) :
             while ($homepage_query_services->have_posts()) : $homepage_query_services->the_post();
             $thumbnail_html = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'thumbnail' );
+            $image_alt = get_post_meta( get_post_thumbnail_id($post->ID), '_wp_attachment_image_alt', true );
             $thumbnail_src = $thumbnail_html[0]; ?>
 
 
           <li class="col-6 d-flex list-group-lg-item align-items-center justify-content-center p-0">
             <a href="<?= get_permalink($post); ?>" class="d-flex flex-lg-row flex-column col-12 col-lg-9 align-items-center pl-lg-5 text-dark nav-link p-0">
               <figure class="rounded-circle p-1" style="height:80px;width:80px;overflow:hidden;">
-                  <img class="img-fluid w-100 align-self-center" src="<?= $thumbnail_src; ?>" alt="service" >
+                  <img class="img-fluid w-100 align-self-center" src="<?= $thumbnail_src; ?>" alt="<?=$image_alt;?>" >
               </figure>
 
               <?php the_title('<p class="font-weight-light text-dark ml-lg-5 text-center">','</p>'); ?>
@@ -86,11 +88,12 @@
           {
               $homepage_query_partenaires->the_post();
               $thumbnail_html = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
+              $image_alt = get_post_meta( get_post_thumbnail_id($post->ID), '_wp_attachment_image_alt', true );
               $thumbnail_src = $thumbnail_html[0]; ?>
 
           <li class="list-group-item border-0 d-flex align-items-center justify-content-center p-0 h-100">
               <a href="<?=bloginfo('url')?>/partenaires" class="d-block p-2">
-                  <img class="img-fluid d-block w-75 mx-auto" src="<?= $thumbnail_src; ?>" alt="partner" >
+                  <img class="img-fluid d-block w-75 mx-auto" src="<?= $thumbnail_src; ?>" alt="<?=$image_alt;?>" >
               </a>
           </li>
 

@@ -152,6 +152,10 @@ a:hover {
     height: 9vw;
     object-fit: cover;
 }
+.card-img-md-top {
+    height: 28vw;
+    object-fit: cover;
+}
 
 .card-body {
   height: 10vw;
@@ -159,6 +163,10 @@ a:hover {
 
 .resize_slider {
   height: 21vw;
+}
+
+.resize_md_slider {
+    height: 52vw;
 }
 
 .resize_slider_xs {
@@ -230,7 +238,8 @@ main > section.row > nav.pagination > a:hover {
 }
 
 .wrapperppi {
-    left: -100% !important;
+    /* left: -100% !important; */
+    left: -123% !important;
     top: -680% !important;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;

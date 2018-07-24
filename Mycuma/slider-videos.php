@@ -12,7 +12,7 @@ if ($slider_query->have_posts()) : ?>
     <div class="container px-0">
         <div id="slider-01" class="carousel slide" data-ride="carousel">
             <!-- indicator -->
-            <ol class="carousel-indicators d-none d-md-block">
+            <ol class="carousel-indicators d-none d-md-flex">
 
                 <?php
                 $Indicator_index = 0;
@@ -30,6 +30,7 @@ if ($slider_query->have_posts()) : ?>
                 $active_test = true;
                 while( $slider_query->have_posts() ) : $slider_query->the_post();
                     $thumbnail_html = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'front-slider' );
+                    $image_alt = get_post_meta( get_post_thumbnail_id($post->ID), '_wp_attachment_image_alt', true );
                     $thumbnail_src = $thumbnail_html['0'];
                     if( $active_test )
                     {
@@ -42,7 +43,7 @@ if ($slider_query->have_posts()) : ?>
                     ?>
                 <div class="carousel-item item<?= $theclass; ?>">
                     <a href="<?=get_permalink($post);?>" class="d-block">
-                        <img class="d-block w-100" src="<?= $thumbnail_src;?>" alt="text alternative de l'image">
+                        <img class="d-block w-100" src="<?= $thumbnail_src;?>" alt="<?=$image_alt;?>">
                         <!-- <div class="carousel-caption d-block"> -->
                         <div class="carousel-caption d-block fixed-top">
                             <h3 class="text-secondary"><?php the_title(); ?></h3>
@@ -72,38 +73,3 @@ if ($slider_query->have_posts()) : ?>
 </section>
 
 <?php endif; ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
